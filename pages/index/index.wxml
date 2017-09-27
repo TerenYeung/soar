@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<view class="index">
+  <view class="category">
+    <view wx:for="{{tabBar}}" class="category__text {{ catNo == item.id ? 'active' :  ''}}" bindtap="changeCat" data-catid="{{item.id}}"
+      data-title="{{item.title}}">
+      {{item.alias}}
+    </view>
+  </view>
+
+  <view class="list">
+    <scroll-view scroll-y bindscrolltolower="bindLower" lower-threshold="50">
+      <view class="list__wrapper" wx:for="{{currentList}}">
+        <view class="list__inner-wrapper">
+          <image mode="widthFix" src="{{item.photos[0].url}}" />
+
+        </view>
+        <view class="list__inner-wrapper detail">
+          <view class="list__name">{{item.name}}</view>
+          <view class="list__address">{{item.address}}</view>
+          <view class="list__tel">{{item.tel}}</view>
+          <view class="list__type-wrapper">
+            <text wx:for="{{item.type}}" wx:for-item="type">{{type}}</text>
+          </view>
+        </view>
+        <view class="list__inner-wrapper go">
+          <view class="list__distance">{{item.distance}} m</view>
+          <view class="list__go" bindtap="goThere" data-start="{{curPoint}}" data-end="{{item.location}}">
+            <image src="../../static/img/go.png" />
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="weather" bindtap="goToWeather">
+    <image src="{{weatherIcon}}"/>
+  </view>
+</view>
+
+<loading hidden="{{loadHide}}">
+  努力加载中...
+</loading>

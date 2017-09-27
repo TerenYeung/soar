@@ -1,0 +1,26 @@
+<view class="weather">
+  <view class="weather__data">
+      <view class="weather__data-title">实时天气</view>
+      <view class="weather__data-tmp">
+        {{weather.liveData.temperature}}゜
+      </view>
+      <view class="weather__data-humidity weather__data-detail">
+        • 湿度 {{weather.liveData.humidity}}%
+      </view>
+      <view class="weather__data-wind weather__data-detail">
+        <view class="weather__data-windpower">
+          • 风力 {{weather.liveData.windpower}} 级
+        </view>
+        <view class="weather__data-winddirection weather__data-detail">
+          • 风向 {{weather.liveData.winddirection}}
+        </view>
+      </view>
+      <view class="weather__data-weather">
+        {{weather.liveData.weather}}
+      </view>
+  </view>
+  <view class="weather__time">
+    天气数据获取自 
+    {{weather.liveData.reporttime}}
+  </view>  
+</view>

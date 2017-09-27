@@ -1,0 +1,143 @@
+/**index.wxss**/
+.index {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-size: 28rpx;
+  border: 1rpx solid transparent;
+}
+
+.btn {
+  font-size: 20rpx;
+  margin: 0 10rpx;
+}
+
+.category {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  justify-content: space-around;
+  box-shadow: rgba(107, 113, 114, 0.15) 0px 2px 4px 0px;
+}
+
+.category__text {
+  color: #130303;
+  text-align: center;
+  display: inline-block;
+  /* border-top: 1px solid #D8D8D8; */
+  border-bottom: 2rpx solid #f5f5f5;
+  width: 25%;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #5a5a5a;
+}
+
+.category__text.active {
+  /* background-color: #5a5959; */
+  /* color: #f5f5f5; */ 
+  color: #5a5a5a;
+  border-bottom: 4rpx solid #5a5a5a;
+}
+
+.category__text image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+scroll-view {
+  height: 100%;
+  width: 100%;
+}
+
+.list__wrapper {
+  border-top: 2rpx solid #f5f5f5;
+  border-bottom: 2rpx solid #f5f5f5;
+  box-shadow: rgba(107, 113, 114, 0.15) 0px 2px 4px 0px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx;
+  margin: 10rpx 0;
+}
+
+.list__inner-wrapper.detail {
+  flex-basis: 350rpx;
+}
+
+.list__inner-wrapper.go {
+  flex-basis: 100rpx;
+}
+
+.list__inner-wrapper image {
+  width: 200rpx;
+}
+
+.list__inner-wrapper .list__name {
+  font-weight: 600;
+}
+
+.list__inner-wrapper .list__address {
+  color: #5a5a5a;
+  font-size: 25rpx;
+  margin: 10rpx 0;
+}
+
+.list__inner-wrapper .list__tel {
+  color: #5a5a5a;
+  font-size: 20rpx;
+  margin: 10rpx 0;
+}
+
+.list__inner-wrapper .list__distance {
+  margin: 20rpx 0;
+}
+
+.list__inner-wrapper .list__go {
+  color: #a04f00;
+  font-size: 20rpx;
+  text-align: center;
+}
+
+.list__type-wrapper {
+
+}
+
+.list__type-wrapper text {
+  background: #f7f7f7;
+  color: #5a5a5a;
+  font-size:20rpx;
+  padding:5rpx 10rpx;
+  line-height:20rpx;
+  margin-right: 10rpx;
+}
+
+.list {
+  position: absolute;
+  top: 80rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.list__name {
+}
+
+.list__go image {
+  width: 40rpx;
+  height: 40rpx;
+
+}
+
+.weather {
+  position: absolute;
+  bottom: 30rpx;
+  right: 30rpx;
+  z-index: 9;
+  background: #FFF;
+  border-radius: 50%;
+  box-shadow: rgba(107, 113, 114, 0.15) 0px 2px 10px 0px;
+}
+
+.weather image {
+  width: 100rpx;
+  height: 100rpx;
+}

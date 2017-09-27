@@ -1,0 +1,17 @@
+<view class="route">
+  <view class="map_box">
+    <map id="navi_map" longitude="{{curLongitude}}" latitude="{{curLatitude}}" scale="12" markers="{{markers}}" polyline="{{polyline}}"></map>
+  </view>
+
+  <view class="text_box">
+    <view class="text">{{distance}}</view>
+    <view class="text">{{duration}}</view>
+    <view class="text">{{cost}}</view>
+    <view class="detail_button {{ showDetail ? 'active' : '' }}" bindtap="showDetail">详情</view>
+  </view>
+  <view class="location__detail" hidden="{{!showDetail}}">
+    <view class="location__detail-item" wx:for="{{steps}}">
+      {{item.instruction}}
+    </view>
+  </view>
+</view>

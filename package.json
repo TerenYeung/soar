@@ -1,0 +1,14 @@
+{
+  "name": "hydrogen-geo-map",
+  "version": "1.0.0",
+  "description": "this is a demo of geo manipulation",
+  "main": "index.js",
+  "author": "teren",
+  "license": "MIT",
+  "devDependencies": {
+    "fs-extra": "^4.0.2",
+    "json2csv": "^3.11.2",
+    "query-string": "^5.0.0",
+    "superagent": "^3.6.0"
+  }
+}

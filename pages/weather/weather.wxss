@@ -1,0 +1,40 @@
+.weather {
+  background: #fbfbfb;
+  width: 100%;
+  height: 100%;
+  color: #919191;
+  font-weight: 300;
+}
+
+.weather__data,
+.weather__time
+{
+  position: relative;
+  background: #FFF;
+  box-shadow: rgba(107, 113, 114, 0.15) 0px 2px 20px 0px;
+  padding: 20rpx;
+  margin: 20rpx 0;
+}
+
+.weather__data-tmp {
+  font-size: 80rpx;
+  color: #404040;
+  font-weight: 300;
+  padding: 20rpx 0;
+}
+
+.weather__data-detail {
+  font-size: 28rpx;
+}
+
+.weather__data-weather {
+  position: absolute;
+  background:#404040;
+  padding:5rpx 10rpx;
+  color:#FFF;
+  border-radius: 30rpx;
+  font-size: 20rpx;
+  top:130rpx;
+  left:150rpx
+}
+
