@@ -6,12 +6,12 @@ const distanceSimplify = (opts) => {
   } = opts
   
   const R = 6367000.0 // 地球半径
-  let one = point2Json(curPoint),
-      two = point2Json(location)
+  let start = point2Json(curPoint),
+      end = point2Json(location)
       
-  let dx = one.lg - two.lg, // 经度差
-      dy = one.la - two.la, // 纬度差
-      avg = (one.la + two.la) / 2, // 平均纬度
+  let dx = start.longitude - end.longitude, // 经度差
+      dy = start.latitude - end.latitude, // 纬度差
+      avg = (start.latitude + end.latitude) / 2, // 平均纬度
       lx = R * toRadians(dx) * Math.cos(toRadians(avg)), // 东西距离
       ly = R * toRadians(dy) // 南北距离
 
@@ -26,8 +26,8 @@ const point2Json = (point) => {
   let pointArr = point.split(',')
 
   return {
-    lg: parseFloat(pointArr[0]),
-    la: parseFloat(pointArr[1]), 
+    longitude: parseFloat(pointArr[0]),
+    latitude: parseFloat(pointArr[1]),
   }
 }
 

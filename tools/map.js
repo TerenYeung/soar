@@ -26,7 +26,7 @@ let csvPath = path.resolve(__dirname, '../files/sites.csv')
 var page = 1
 var offset= 20
 
-var typesList = ['风景名胜', '餐饮服务', '住宿服务', '商店服务']
+var typesList = ['风景名胜', '餐饮服务', '住宿服务', '购物服务']
 var typesNo = 0
 
 let getPoisAndWriteFiles = (typesNo) => {
@@ -66,7 +66,7 @@ let getPoisAndWriteFiles = (typesNo) => {
                 location_geo: {
                   coordinates:[...location],
                   type: "Point"
-                }
+                },
               })
             })
 

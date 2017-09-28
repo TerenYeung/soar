@@ -73,12 +73,12 @@ App({
   globalData: {
     systemInfo: {},
     TABLE_ID: {
-      SITES: 1929,
+      SITES: 1984,
     }, // 从 https://cloud.minapp.com/dashboard/ 管理后台的数据表中获取
 
-    CLIENT_ID: '9b895b98695a9c093e7b',
+    CLIENT_ID: '', // 从知晓云开发者平台获取
 
-    AMapKey: '4526259206dfda52e8f8a41a52506553',
+    AMapKey: '', // 高德地图小程序 SDK key
     weather: null,
     curPoint: '',
   }

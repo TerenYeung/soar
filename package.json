@@ -10,5 +10,8 @@
     "json2csv": "^3.11.2",
     "query-string": "^5.0.0",
     "superagent": "^3.6.0"
+  },
+  "dependencies": {
+    "node-geo-distance": "^1.2.0"
   }
 }

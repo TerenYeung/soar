@@ -7,6 +7,8 @@ const
   sites = require('../../io/sites'),
   utils = require('../../utils/index')
 
+const geo = require('../../lib/node-geo-distance')
+
 Page({
   data: {
 
@@ -17,10 +19,11 @@ Page({
     currentList: [],
     noImg:  'https://cloud-minapp-3906.cloud.ifanrusercontent.com/1dwpzjokssiMaFdj.jpeg',
     weatherIcon: '../../static/img/weather2.png',
-    pageNo: 0,
-    offset: 0,
-    limit: 10,
-    total_count: 0,
+    pageNo: 0, // 当前分页
+    pageSize: 10, // 单页数量
+    offset: 0, //
+    totalPage: 0,  // 总页数
+    totalCount: 0, // 总数量
     catNo: 0,
     activeTitle: '风景名胜',
     interestId: 0,
@@ -44,7 +47,7 @@ Page({
         id: 2,
         img: '../../static/img/hotel.png',
       }, {
-        title: '商店服务',
+        title: '购物服务',
         alias: '商店',
         id: 3,
         img: '../../static/img/store.png',
@@ -53,115 +56,38 @@ Page({
   },
 
   onLoad(options) {
+
     let opts = {
-      offset: 0,
-      limit: 10,
-      pageNo: 0,
-      tableID: this.data.SITES,
-      curPoint: this.data.curPoint,
       ctx: this,
       isRefresh: true,
-      title: this.data.activeTitle,
     }
-    this.getRegionSites(opts)
+    sites.getRegionSites(opts)
   },
-
-  getRegionSites(opts) {
-    
-    let { isRefresh, pageNo } = opts,
-        { currentList, curPoint, loadHide } = this.data
-
-    this.setData({
-      loadHide: false,
-    })
-    
-    sites.getRegionSites(opts, (res) => {
-      let data = res.data.objects
-      let list = data.map(item => {
-        let
-          location = item.location,
-          opts = {
-            curPoint,
-            location,
-          },
-          photos = JSON.parse(item.photos)
-        console.log('res', item)
-        return Object.assign(item, {
-          address: item.address == '[]' ? '' : item.address,
-          distance: utils.distanceSimplify(opts),
-          type: item.type.split(';'),
-          tel: (item.tel == '[]' ? '' : item.tel.split(';').join('/')),
-          photos: photos.length == 0 ? [{url: this.data.noImg}] : photos
-        })
-      })
-
-      if (isRefresh) {
-        this.setData({
-          currentList: list,
-          pageNo,
-          loadHide: true,
-        })
-      } else {
-        let ret = currentList.concat(list)
-        this.setData({
-          currentList: ret,
-          pageNo,
-          loadHide: true,
-        })
-      }
-    })
-  },
-
+  
   changeCat(e) {
     let catId = e.currentTarget.dataset.catid,
-        activeTitle = e.currentTarget.dataset.title,
-        {offset, limit, SITES, curPoint} = this.data
+        activeTitle = e.currentTarget.dataset.title
 
     this.setData({
       catNo: catId,
       activeTitle,
-      currentList: null,
     })
 
     let opts = {
-      offset: 0,
-      limit: 10,
-      pageNo: 0,
-      tableID: this.data.SITES,
-      curPoint: this.data.curPoint,
       ctx: this,
       isRefresh: true,
-      title: activeTitle,
     }
-
-    this.getRegionSites(opts)
+    sites.getRegionSites(opts)
   },
 
   bindLower(e) {
     console.log('lower')
-    let {
-        pageNo,
-        SITES,
-        limit,
-        curPoint,
-        activeTitle,
-      } = this.data
-
-    // 页数 + 1
-    pageNo++
-    let offset = pageNo * limit
 
     let opts = {
-      pageNo,
-      offset,
-      limit,
-      tableID: SITES,
-      curPoint,
-      ctx: this,
       isRefresh: false,
-      title: activeTitle,
+      ctx: this,
     }
-    this.getRegionSites(opts)
+    sites.getRegionSites(opts)
   },
 
   goToWeather() {
